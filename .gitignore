@@ -1,0 +1,5 @@
+.ruby-*
+.vagrant*
+*.swp
+pkg
+spec/fixtures
