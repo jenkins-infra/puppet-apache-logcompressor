@@ -14,7 +14,17 @@
 #
 # Copyright 2014 R. Tyler Croy
 #
-class apache-logcompressor {
+class apache-logcompressor(
+  $ensure = 'present',
+) {
+  include ruby
 
+  file { '/usr/local/bin/apache-compress-log':
+    ensure => $ensure,
+    source => "puppet://modules/${module_name}/compress-log.rb",
+    mode   => '0700',
+  }
 
+  #cron { 'compress apache logs':
+  #}
 }
