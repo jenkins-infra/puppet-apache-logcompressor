@@ -31,7 +31,7 @@ class apache-logcompressor(
 
   file { '/usr/local/bin/apache-compress-log':
     ensure => $ensure,
-    source => "puppet://modules/${module_name}/compress-log.rb",
+    source => "puppet:///modules/${module_name}/compress-log.rb",
     mode   => '0700',
   }
 
