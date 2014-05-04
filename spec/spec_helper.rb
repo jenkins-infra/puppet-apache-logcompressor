@@ -1,17 +1,23 @@
-dir = File.expand_path(File.dirname(__FILE__))
-$LOAD_PATH.unshift File.join(dir, 'lib')
-
-require 'mocha'
-require 'puppet'
+require 'rubygems'
 require 'rspec'
-require 'spec/autorun'
+require 'puppetlabs_spec_helper/module_spec_helper'
+require 'pry'
 
-Spec::Runner.configure do |config|
-    config.mock_with :mocha
-end
+FIXTURES_PATH = File.expand_path(File.dirname(__FILE__) + '/fixtures')
+# Set up our $LOAD_PATH to properly include custom provider code from modules
+# in spec/fixtures
+$LOAD_PATH.unshift(*Dir["#{FIXTURES_PATH}/modules/*/lib"])
 
-# We need this because the RAL uses 'should' as a method.  This
-# allows us the same behaviour but with a different method name.
-class Object
-    alias :must :should
+RSpec.configure do |c|
+  c.mock_with :rspec
+  # Use color in STDOUT
+  c.color_enabled = true
+  c.formatter = :documentation
+
+  c.before(:each) do
+    # Workaround until this is fixed:
+    #   <https://tickets.puppetlabs.com/browse/PUP-1547>
+    require 'puppet/confine/exists'
+    Puppet::Confine::Exists.any_instance.stubs(:which => '')
+  end
 end
