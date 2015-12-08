@@ -11,8 +11,6 @@ $LOAD_PATH.unshift(*Dir["#{FIXTURES_PATH}/modules/*/lib"])
 
 RSpec.configure do |c|
   c.mock_with :rspec
-  # Use color in STDOUT
-  c.color_enabled = true
   c.formatter = :documentation
 
   c.before(:each) do
