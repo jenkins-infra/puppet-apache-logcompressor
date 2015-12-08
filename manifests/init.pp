@@ -1,20 +1,19 @@
-# == Class: apache-logcompressor
-#
+# == Class: apachelogcompressor
 #
 # === Examples
 #
-#  class { apache-logcompressor:
+#  class { apachelogcompressor:
 #  }
 #
 # === Authors
 #
-# R. Tyler Croy <tyler@linux.com>Author Name <author@domain.com>
+# R. Tyler Croy <tyler@linux.com>
 #
 # === Copyright
 #
-# Copyright 2014 R. Tyler Croy
+# Copyright 2015 R. Tyler Croy
 #
-class apache-logcompressor(
+class apachelogcompressor(
   $ensure   = 'present',
   $log_root = '/var/log/apache2',
 ) {

@@ -4,6 +4,6 @@ fixtures:
   forge_modules:
     apache: 'puppetlabs/apache'
     stdlib: 'puppetlabs/stdlib'
-    ruby: 'puppetlabs/ruby'
+    ruby:   'puppetlabs/ruby'
   symlinks:
-    apache-logcompressor: "#{source_dir}"
+    apachelogcompressor: "#{source_dir}"

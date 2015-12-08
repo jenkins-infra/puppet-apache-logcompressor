@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'apache-logcompressor' do
+describe 'apachelogcompressor' do
   let(:facts) do
     {
       :osfamily => 'Debian',
